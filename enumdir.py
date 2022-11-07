@@ -11,7 +11,8 @@ if port == "":
 try: 
     connection = http.client.HTTPConnection(host,port)
     connection.request('GET','/%s' % dir)
-    if connection.status = 200:
+    response = connection.getresponse()
+    if response.status == 200:
         print("the web have the directory: /" dir)
     else:
         print("Not found :/",dir)
